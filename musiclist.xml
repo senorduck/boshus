@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<musiclist>
+	<song>
+		<title>Elephant</title>
+		<url>swf/elephant.mp3</url>
+	</song>
+	<song>
+		<title>I'm Sorry Creature</title>
+		<url>swf/creature.mp3</url>
+	</song>
+	<song>
+		<title>The Best Day</title>
+		<url>swf/bestday.mp3</url>
+	</song>
+</musiclist>

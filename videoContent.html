@@ -1,0 +1,78 @@
+<div id="divFlash"></div>
+<div id="vidControls">
+	<img src="img/vidPlay.gif" width="6" height="11" alt="Play" id="vidPlay" />
+    <img src="img/vidPause.gif" width="7" height="11" alt="Pause" id="vidPause" />
+    <span id="vidScrubber">
+    	<span id="vidIndicator"></span>
+    </span>
+    <span id="vidCounter"></span>
+    <img src="img/vidVol.gif" width="7" height="12" alt="Volume" id="vidVol" />
+</div>
+<script type="text/javascript">
+var flashvars = {};
+var params = {
+  menu: "false",
+  allowScriptAccess: "always",
+  wmode: "transparent"
+};
+var attributes = {};
+
+swfobject.embedSWF("http://www.youtube.com/apiplayer?enablejsapi=1", "divFlash", "425", "312", "9.0.0","expressInstall.swf", flashvars, params, attributes);
+var player=document.getElementById("divFlash");
+function onYouTubePlayerReady(playerId) {
+	$("#vidControls").fadeIn(500,function(){
+		player.cueVideoByUrl('http://www.youtube.com/v/7LlgBbczc0o&hl=en&fs=1&');
+		player.addEventListener("onStateChange","doStateChange");
+	});
+}
+function doStateChange(state){
+	if(state==1){
+		callVidCounter();
+	} else {
+		clearTimeout(theTimeout);
+	}
+}
+$("#vidPlay").click(function(){
+	_gaq.push(['_trackEvent', 'Media', 'Play', 'Video - Best Day']);
+	player.playVideo();
+});
+$("#vidPause").click(function(){
+	player.pauseVideo();
+});
+var theTimeout;
+var muted=false;
+$("#vidVol").click(function(){
+	if(muted==false){
+		player.mute();
+		muted=true;
+	} else {
+		player.unMute();
+		muted=false;
+	}
+});
+function callVidCounter(){
+	theTimeout=setTimeout(vidCount,1000);
+}
+function vidCount(){
+	var theTime=player.getCurrentTime();
+	var theMin=Math.floor(theTime/60);
+	var theSec=Math.floor(theTime%60);
+	if(theSec.toString().length==1){
+		theSec="0"+theSec;
+	}
+	var timeText=theMin+":"+theSec;
+	$("#vidCounter").html(timeText);
+	var timeLeft=(theTime/player.getDuration());
+	$("#vidIndicator").css("width",(322*timeLeft));
+	callVidCounter();
+}
+/*$("#vidScrubber").click(function(e){
+	var x = e.pageX - this.offsetLeft;
+	var thisPos=(x-286);
+	if(player.getDuration()>0){
+		var scrubTo=((thisPos/322)*player.getDuration());
+		player.seekTo(scrubTo, true);
+		$("#vidIndicator").css("width",thisPos);
+	}
+});*/
+</script>

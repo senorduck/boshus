@@ -1,0 +1,379 @@
+/*
+Copyright (c) 2009, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui/license.txt
+version: 2.7.0
+*/
+html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var,optgroup{font-style:inherit;font-weight:inherit;}del,ins{text-decoration:none;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:baseline;}sub{vertical-align:baseline;}legend{color:#000;}input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;}input,button,textarea,select{*font-size:100%;}
+body, html {	
+	background: #ff6b6b;
+	color: #FFF;
+	font-family: "Myriad Pro", Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+h2 {
+	color: #ff8989;
+	font-size: 12px;
+	font-weight: normal;
+}
+p {
+	color: #FFF;
+	margin: 10px 0;
+}
+a, a:visited, a:active, a:hover {
+	color: #ff8989;
+	text-decoration: none;
+}
+object {
+	outline: none;
+}
+.sub {
+	color: #ffe86b;
+	font-size: 10px;
+}
+#boshus {
+	border: 1px solid #ff6b6b;
+	display: block;
+	height: 683px;
+	margin: 20px auto 10px auto;
+	overflow: hidden;
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 1000px;
+}
+#bestDay {
+	position: absolute;
+	top: 0;
+	left: -100px;
+	z-index: 0;
+}
+#view {
+	display: none;
+	height: 683px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 10;
+}
+#load {
+	display: none;
+}
+#logo, #logo1 {
+	cursor: default;
+	margin: 10px auto 0 auto;
+	position: absolute;
+	left: 370px;
+	top: 0;
+	z-index: 1000;
+}
+#logo1 {
+	z-index: 1100;
+}
+#topNav {
+	height: 12px;
+	margin: 0 auto 0 auto;
+	padding: 0;
+	overflow: hidden;
+	position: relative;
+	top: 104px;
+	width: 635px;
+	z-index: 3000;
+}
+#topNav li {
+	list-style: none;
+	display: inline;
+	float: left;
+	margin: 0 40px;
+	padding: 0;
+}
+#topNav li img {
+	margin-top: -12px;
+	outline: none;
+}
+#topNav li:hover img {
+	margin-top: 0;
+}
+#topNav li.on img {
+	margin-top: 0;
+}
+#balloon {
+	cursor: move;
+	display: none;
+	position: absolute;
+	top: 9px;
+	left: 854px;
+	z-index: 100;
+}
+#girl1 {
+	cursor: move;
+	position: absolute;
+	left: 78px;
+	top: 201px;
+	z-index: 300;
+}
+#elephant {
+	cursor: move;
+	position: absolute;
+	left: 222px;
+	top: 369px;
+	z-index: 500;
+}
+#annete {
+	cursor: move;
+	position: absolute;
+	left: 666px;
+	top: 426px;
+	z-index: 600;
+}
+#goat {
+	cursor: move;
+	position: absolute;
+	left: 865px;
+	top: 210px;
+	z-index: 70;
+}
+#ball {
+	cursor: move;
+	position: absolute;
+	left: 13px;
+	top: 448px;
+	z-index: 80;
+}
+#infoContent {
+	display: none;
+	position: absolute;
+	top: 47px;
+	left: 10px;
+	height: 100%;
+	padding-top: 97px;
+	width: 250px;
+	z-index: 800;
+}
+#infoDots {
+	display: none;
+	position: absolute;
+	top: 48px;
+	left: 10px;
+	z-index: 100;
+}
+#infoback {
+	background: url(../img/info_back.png) top left repeat-y;
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 587px;
+	height: 100%;
+}
+#infoContent div {
+	padding-bottom: 10px;
+	width: 250px;
+}
+#linksContent {
+	display: none;
+	position: absolute;
+	top: 6px;
+	right: 10px;
+	height: 100%;
+	padding-top: 137px;
+	width: 255px;
+	z-index: 800;
+}
+#linksDots {
+	display: none;
+	position: absolute;
+	top: 4px;
+	right: 10px;
+	z-index: 100;
+}
+#linksback {
+	background: url(../img/links_back.png) top left repeat-y;
+	display: none;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 587px;
+	height: 100%;
+}	
+#linksContent div {
+	clear: right;
+	padding-bottom: 10px;
+	position: relative;
+	float: right;
+	text-align: right;
+	width: 255px;
+}
+#showsContent {
+	display: none;
+	position: absolute;
+	top: 212px;
+	left: 509px;
+	height: 100%;
+	width: 230px;
+}
+#showsback {
+	background: url(../img/shows_back.png) top left repeat-x;
+	display: none;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 1000px;
+	height: 587px;
+}
+#showsContent div {
+	float: left;
+	padding-bottom: 6px;
+	width: 270px;
+}
+#showsContent img {
+	margin: 7px 0;
+}
+#showsContent .show {
+	color: #ff8989;
+	font-size: 12px;
+	float: left;
+	width: 90px;
+}
+#showsContent .map {
+	float: right;
+	text-align: right;
+	width: 80px;
+}
+#showsContent .review {
+	float: left;
+	width: 180px;
+}
+
+#showsContent .venue {
+	float: right;
+	text-align: right;
+	width: 180px;
+}
+#mediaContent {
+	display: none;
+	position: absolute;
+	top: 133px;
+	left: 218px;
+	width: 556px;
+}
+#mediaNav {
+	padding: 0;
+	margin: 0 auto;
+	width: 199px;
+}
+#mediaNav li {
+	display: none;
+	float: left;
+	margin: 0 6px;
+}
+#mediaContent #inner {
+	position: absolute;
+	text-align: center;
+	top: 32px;
+	width: 556px;
+}
+#mediaContent #inner img{
+	border: 1px solid #ec948d;
+	cursor: pointer;
+	display: none;
+	margin: 0 auto;
+}
+#mediaContent #inner div {
+	margin: 0 auto;
+	position: relative;
+	top: 0;
+	width: 425px;
+	height: 342px;
+}
+#mediaContent #inner div object {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+#mediaContent #imgPagination {
+	color: #fecd05;
+	display: none;
+	font-size: 12px;
+	position: absolute;
+	top: 426px;
+	text-align: center;
+	width: 556px;
+}
+#mediaContent #imgPagination #leftarrow {
+	cursor: pointer;
+	margin-right: 5px;
+	position: relative;
+	top: 2px;
+}	
+#mediaContent #imgPagination #rightarrow {
+	cursor: pointer;	
+	margin-left: 5px;
+	position: relative;
+	top: 2px;
+}
+.content {
+	position: relative;
+	z-index: 800;
+}
+#mediaContent #inner #vidControls {
+	background-color: #000;
+	display: none;
+	height: 30px;
+	margin: 0 auto;
+	position: relative;
+	width: 425px;
+}
+#mediaContent #inner #vidControls img {
+	border: none;
+	display: block;
+	position: absolute;
+}
+#mediaContent #inner #vidControls #vidPlay {
+	left: 15px;
+	top: 9px;
+}
+#mediaContent #inner #vidControls #vidPause {
+	left: 30px;
+	top: 9px;
+}
+#mediaContent #inner #vidControls #vidScrubber {
+	background:url(../img/scrubBack.gif) top left repeat-x;
+	display: block;
+	height: 24px;
+	position: absolute;
+	left: 45px;
+	top: 3px;
+	width: 322px;
+}
+#mediaContent #inner #vidControls #vidIndicator {
+	background:url(../img/indicatorBack.gif) top left repeat-x;
+	display: block;
+	height: 24px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 0;
+}
+#mediaContent #inner #vidControls #vidCounter {
+	color: #ff9ca6;
+	font-size: 12px;
+	position: absolute;
+	left: 374px;
+	top: 8px;
+}
+#mediaContent #inner #vidControls #vidVol {
+	left: 408px;
+	top: 8px;
+}
+#copyr {
+	color: #FFF;
+	display: none;
+	font-size: .9em;
+	position: relative;
+	margin: 0 auto 20px auto;
+	text-align: center;
+	width: 250px;
+	z-index: 1500;
+}	
